@@ -52,7 +52,7 @@ const AddGoal = ({ onClose, onUpdate }) => {
             </div>
             )}
             <span className="close absolute top-4 right-4" onClick={onClose}>&times;</span>
-            <h3>Add New Goal</h3>
+            <h3>加入新目标</h3>
             {/* <input
                 type="text"
                 value={goal}
@@ -68,7 +68,7 @@ const AddGoal = ({ onClose, onUpdate }) => {
               placeholder="Enter goal"
               className="w-full p-4 h-48 border border-gray-300 rounded-lg shadow-sm text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
-            <button onClick={handleAddGoal}>Add Goal</button>
+            <button onClick={handleAddGoal}>加入目标</button>
         </div>
     </div>
     );

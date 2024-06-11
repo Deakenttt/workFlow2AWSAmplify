@@ -47,13 +47,13 @@ const DeleteGoal = ({ goalId, onUpdate, onClose}) => {
             {isModalOpen && ( */}
                 <div className="modal fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-50">
                     <div className="modal-content bg-white p-6 rounded-lg shadow-lg">
-                    <h3 className="text-lg font-semibold mb-4">Confirm Delete</h3>
-                        <p>Are you sure you want to delete this goal?</p>
+                    <h3 className="text-lg font-semibold mb-4">确认删除</h3>
+                        <p>真的要删除此目标吗?</p>
                         <div className="mt-4 flex justify-end"></div>
                         <button className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 mr-2" onClick={
-                            confirmDelete}>Yes</button>
+                            confirmDelete}>删掉</button>
                         <button className="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400" onClick={
-                            onClose}>No</button>
+                            onClose}>再想想</button>
                         {message && <p className="mt-2 text-sm text-red-500">{message}</p>}
                     </div>
                 </div>

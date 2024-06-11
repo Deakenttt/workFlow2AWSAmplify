@@ -26,17 +26,17 @@ const UpdateGoal = ({ goalId, currentGoal, currentStatus, onClose, onUpdate }) =
             // console.log(response.data);
 
             if (response.status === 201 || response.status === 200) {
-                setMessage('goal updated successfully!');
+                setMessage('成功更改目标!');
                 onUpdate(); // Refresh the goals to include the updated goal
                 setTimeout(() => {
                     setMessage('');
                     onClose();
                 }, 2000);
             } else {
-                setMessage('Failed to update goal');
+                setMessage('无法更改目标');
             }
         } catch (error) {
-            setMessage('Failed to update goal');
+            setMessage('无法更改目标');
         }
         try {
             const response = await axios.put(
@@ -58,7 +58,7 @@ const UpdateGoal = ({ goalId, currentGoal, currentStatus, onClose, onUpdate }) =
         <div className="modal">
             <div className="modal-content relative bg-white rounded-lg shadow-lg p-7">
             <span className="close absolute top-4 right-4" onClick={onClose}>&times;</span>
-                <h3>Update goal</h3>
+                <h3>更改目标</h3>
                 {/* <input
                     type="text"
                     value={goal}
@@ -72,10 +72,10 @@ const UpdateGoal = ({ goalId, currentGoal, currentStatus, onClose, onUpdate }) =
                     className="w-full p-4 h-48 border border-gray-300 rounded-lg shadow-sm text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
                  <select value={status} onChange={(e) => setStatus(e.target.value)}>
-                    <option value="Finished">Finished</option>
-                    <option value="Unfinished">Unfinish</option>
+                    <option value="Finished">完成啦</option>
+                    <option value="Unfinished">未完成</option>
                 </select>
-                <button onClick={handleUpdateGoal}>Update</button>
+                <button onClick={handleUpdateGoal}>更改好了</button>
                 {/* <button onClick={onClose}>Close</button> */}
                 {message && <p>{message}</p>}
             </div>

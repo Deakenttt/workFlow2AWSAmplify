@@ -10,16 +10,16 @@ const DeleteTask = ({ taskId, onUpdate }) => {
             axios.delete(`https://workflowbackendapi-production.up.railway.app//delete_task/${taskId}`);
 
             if (response.status === 200) {
-                setMessage('Task deleted successfully!');
+                setMessage('成功删除此任务!');
                 onUpdate(); // Refresh the tasks list after deletion
                 setTimeout(() => {
                     setMessage('');
                 }, 2000);
             } else {
-                setMessage('Failed to delete task');
+                setMessage('无法删除此任务');
             }
         } catch (error) {
-            setMessage('Failed to delete task');
+            setMessage('无法删除此任务');
         }
     };
 
@@ -27,7 +27,7 @@ const DeleteTask = ({ taskId, onUpdate }) => {
         <>
             <button className="ml-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600" 
             onClick={handleDeleteTask}>
-                Delete Task
+                删除此任务
             </button>
             {message && <p>{message}</p>}
         </>

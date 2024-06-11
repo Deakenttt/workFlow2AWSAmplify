@@ -113,7 +113,7 @@ const Goal = ({ goal, onUpdate }) => {
                         {goal.state ? '(Completed)' : '(Incomplete)'}
                     </span> */}
                     <span className={`ml-2 ${goal.state ? 'text-green-500' : 'text-orange-500'}`}>
-                            {goal.state ? '(Completed)' : '(Incomplete)'}
+                            {goal.state ? '(完成)' : '(未完成)'}
                     </span>
                 </h2>
                 {/* <label className="inline-block px-2 py-1 bg-gray-200 text-gray-600 text-xs font-semibold rounded-full">
@@ -131,7 +131,7 @@ const Goal = ({ goal, onUpdate }) => {
                         <div className="menu-container">
                             <div className="menu-content">
                                     <button className="menu-item text-gray-700 hover:bg-gray-100" onClick={toggleTasksVisibility}>
-                                        {showTasks ? 'Hide Tasks (Detail)' : 'Show Tasks (Detail)'}
+                                        {showTasks ? '合上目标详情' : '展开目标详情'}
                                     </button>
                                     <button className="menu-item text-gray-700 hover:bg-gray-100" onClick={toggleModalVisibility}>
                                         Add Task
@@ -144,7 +144,7 @@ const Goal = ({ goal, onUpdate }) => {
                                     </button>
                                     <button className={`menu-item hover:bg-gray-100 ${isEditMode ? 'edit-mode-active' : 'text-gray-700'}`} 
                                     onClick={toggleEditMode}>
-                                    {isEditMode ? 'Stop Editing Tasks' : 'Edit Tasks'}
+                                    {isEditMode ? '停止更改任务' : '更改任务'}
                                     </button>
                                     {/* <button className="menu-item text-red-500 hover:bg-red-100" 
                                     onClick={openAIPlugIn}>
@@ -175,7 +175,7 @@ const Goal = ({ goal, onUpdate }) => {
                                             className="ml-1 px-1 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
                                             onClick={() => openAddTaskModal(task.id)}
                                         >
-                                            Add Task Below
+                                            下方加入新任务
                                         </button>
                                         <DeleteTask taskId={task.id} onUpdate={onUpdate} />
                                     </>

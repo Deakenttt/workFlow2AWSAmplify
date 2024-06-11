@@ -33,18 +33,18 @@ const CalTime = ({ create_date }) => {
                 const remainingHours = Math.ceil((secondsPassed % 86400) / 3600);
                 if (daysPassed >= 1) {
                     setagColor('bg-amber-200')
-                }else if(daysPassed > 3){
-                    setagColor('amber-300')
-                }else if(daysPassed > 6){
-                    setagColor('bg-amber-400')
+                }else if(daysPassed >= 3){
+                    setagColor('amber-400')
+                }else if(daysPassed >= 6){
+                    setagColor('bg-amber-600')
                 }else if (daysPassed >= 7) {
-                    setagColor('bg-orange-300')
-                }else if(daysPassed > 13){
-                    setagColor('bg-orange-300')
-                }else if(daysPassed > 20){
+                    setagColor('bg-orange-200')
+                }else if(daysPassed >= 13){
                     setagColor('bg-orange-400')
-                }else{
+                }else if(daysPassed >= 20){
                     setagColor('bg-orange-600')
+                }else{
+                    setagColor('bg-orange-700')
                 }
                 // setTimePassed(`${daysPassed} days and ${remainingHours} hours ago`);
                 setTimePassed(`${daysPassed} day${daysPassed !== 1 ? 's' : ''} 

@@ -69,7 +69,7 @@ const AddTask = ({ goalId, taskId = "NONE", onClose, onUpdate }) => {
             <div className="modal-content relative bg-white rounded-lg shadow-lg p-7">
             {/* a close icon instead of close button */}
             <span className="close absolute top-4 right-4" onClick={onClose}>&times;</span>
-                <h3>Add New Task</h3>
+                <h3>加入新任务</h3>
                 <textarea
                     id="task"
                     name="task"
@@ -79,7 +79,7 @@ const AddTask = ({ goalId, taskId = "NONE", onClose, onUpdate }) => {
                     className="w-full p-4 h-48 border border-gray-300 rounded-lg 
                     shadow-sm text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
-                <button onClick={handleAddTask}>Add</button>
+                <button onClick={handleAddTask}>加入任务</button>
                 {message && <p>{message}</p>}
             </div>
         </div>
