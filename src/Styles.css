@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* components/goal.css */
+
+.goal-container {
+    position: relative;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    max-height: 880px; /* Adjust based on the desired visible height */
+    /* this will create another scroll bar in each goal */
+    /* overflow-y: auto; */
+    transition: max-height 0.3s ease; /* Add transition for smooth height change */
+    display: flex;
+    flex-direction: column;
+    cursor: pointer; /* Change cursor to indicate interactivity */
+    
+}
+.goal-header {
+    position: sticky;
+    top: 0;
+    /* background-color: white; */
+    z-index: 1;
+    padding: 10px;
+    /* border-bottom: 1px solid #ddd; */
+    margin-bottom: height 0.3s ease; /* Add transition for smooth height change */
+}
+.goal-header.menu-open {
+    margin-bottom: 200px; /* Expand goal header when menu is open */
+}
+.goal-text-container {
+    flex: 1;
+    margin-right: 10px; /* Add margin to ensure space for the icon */
+    overflow: hidden; /* Ensure text does not overflow its container */
+}
+.goal-text {
+    word-wrap: break-word; /* Allow text to wrap to the next line instead of overflow*/
+}
+.relative {
+    flex-shrink: 0; /* Prevent the menu icon from shrinking */
+    margin-left: 10px; /* Adjust margin as needed */
+}
+.menu-icon {
+    position: absolute;
+    top: 10px; /* Adjust based on your design */
+    right: 10px; /* Adjust based on your design */
+    flex-shrink: 0; /* Prevent the menu icon from shrinking */
+    font-size: 24px;
+}
+.menu-container {
+    position: absolute;
+    /* right: 10px; */
+    top: 50%;
+    /* top: calc(50% - 12px); */
+    /* Position it next to the menu icon */
+    right: calc(100% + 10px);
+    transform: translateY(-10%);
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 150px; /* Adjust the width as needed */
+    min-width: 150px; /* Ensure minimum width for content */
+    /* Limit height to viewport height - 100px */
+    /* max-height: calc(100vh - 100px); */
+    /* Enable vertical scrolling if content exceeds max height */
+    display: inline-table;
+    overflow-y: auto;
+    flex-direction: column;
+}
+
+.menu-button {
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+}
+.menu-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item {
+    padding: 10px;
+    text-align: left;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background-color: #f0f0f0;
+}
+.menu-container .menu-content .menu-item.edit-mode-active {
+    background-color: #f87171; /* Red color */
+    color: white;
+}
+
+.goal-status {
+    margin-left: 10px;
+}
+
+.goal-status.completed {
+    color: green;
+}
+
+.goal-status.incomplete {
+    color: orange;
+}
+
+
+/* components/Task.css */
+/* task text formate */
+.task-box {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 5px 0;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.2s;
+    word-wrap: break-word;
+}
+
+.task-box:hover {
+    transform: scale(1.02);
+}
+
+.tasks-container {
+    padding: 10px;
+    max-height: 600px; /* Added to ensure tasks container is scrollable */
+    overflow-y: auto;
+    /* overflow: hidden; */
+}
+.task-text-container {
+    flex: 1;
+    overflow: hidden;
+}
+.tasks-container .task-actions {
+    display: none;
+}
+
+.tasks-container.edit-mode .task-actions {
+    display: flex;
+}
+
+.close {
+    color: #aaa;
+    /* float: inline-end; */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.warning {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  .warning.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .warning.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+
+
+  /* add task to sepefic goal  */
+  .modal {
+    display: block; 
+    position: fixed;
+    z-index: 2; /* Ensure it covers everything else */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Add padding for mobile devices */
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%; /* Full width on small screens */
+    max-width: 500px; /* Limit max width on larger screens */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.modal-content h3 {
+    margin-bottom: 10px;
+    font-size: 1.25rem; /* Adjust font size for better readability */
+}
+
+.modal-content input {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.modal-content button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    width: calc(100% - 50px);
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.modal-content button:hover {
+    background-color: #0056b3;
+}
+
+.modal-content p {
+    margin-top: 10px;
+    color: red;
+    font-size: 1rem; /* Adjust font size for better readability */
+}
+
+@media (max-width: 600px) {
+    .goal-text {
+        font-size: 14px; /* Smaller font size for smaller screens */
+    }
+    .menu-icon {
+        font-size: 20px; /* Adjust icon size for smaller screens */
+    }
+    .relative {
+        font-size: 20px; /* Adjust icon size for smaller screens */
+    }
+}
+/* Media queries for responsive design */
+@media (min-width: 600px) {
+    .modal-content {
+        width: 80%; /* Adjust width for medium screens */
+    }
+}
+
+@media (min-width: 768px) {
+    .modal-content {
+        width: 60%; /* Adjust width for larger screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    .modal-content {
+        width: 50%; /* Adjust width for even larger screens */
+    }
+}
