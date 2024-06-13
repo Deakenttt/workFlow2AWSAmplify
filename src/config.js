@@ -1,4 +1,4 @@
 // base url
 // export const BASE_URL = 'https://workflowbackendapi-production.up.railway.app';
-export const BASE_URL = `something->${process.env.BASE_URL}`
+export const BASE_URL = `something->${process.env.BaseURL}`
 console.log('Base URL:', BASE_URL);
