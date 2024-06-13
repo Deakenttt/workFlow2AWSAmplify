@@ -1,7 +1,5 @@
 import axios from "axios";
-
-// Construct URL with query parameters
-const BASE_URL = 'https://workflowbackendapi-production.up.railway.app'
+import { BASE_URL } from '../config';
 
 export const createGoal = async ( url, inputData ) => {
   const options = {

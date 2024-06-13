@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../config';
 import '../Styles.css'; // Import the CSS file for styling
 
 const AIPlugIn = ({ goalId, onUpdate }) => {
@@ -11,7 +12,7 @@ const AIPlugIn = ({ goalId, onUpdate }) => {
     useEffect(() => {
         const estimateTime = async () => {
             try {
-                const response = await axios.put(`https://workflowbackendapi-production.up.railway.app/${goalId}/estamate_time`, {});
+                const response = await axios.put(`${BASE_URL}/${goalId}/estamate_time`, {});
                 if (response.status === 201 || response.status === 200) {
                     // const data = await response.json();
                     // console.log(response);
@@ -34,7 +35,7 @@ const AIPlugIn = ({ goalId, onUpdate }) => {
         setShowResult(!showResult);
     };
 
-    if (loading) return <div>AI estimating...</div>;
+    if (loading) return <div>AI 评估中...</div>;
     if (error) return <div>Error: {error}</div>;
 
     return (

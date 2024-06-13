@@ -1,7 +1,6 @@
 import axios from "axios";
-
+import { BASE_URL } from '../config';
 // Construct URL with query parameters
-const BASE_URL = 'https://workflowbackendapi-production.up.railway.app'
 
 const options = {
     method: 'get', // Specify the method (get)

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../config';
 import { useState } from 'react';
 
 const DeleteGoal = ({ goalId, onUpdate, onClose}) => {
@@ -10,10 +11,10 @@ const DeleteGoal = ({ goalId, onUpdate, onClose}) => {
         //we don't need to cancel the default action that belongs to the event
         // e.preventDefault();
         try {
-            const response = await axios.delete(`https://workflowbackendapi-production.up.railway.app/delete_goal/${goalId}`);
+            const response = await axios.delete(`${BASE_URL}/delete_goal/${goalId}`);
 
             if (response.status === 200) {
-                setMessage('Goal deleted successfully!');
+                setMessage('成功删除!');
                 onUpdate(); // Refresh the goals list after deletion
                 setTimeout(() => {
                     setMessage('');

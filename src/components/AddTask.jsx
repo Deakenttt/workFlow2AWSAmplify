@@ -1,35 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../config';
 import '../Styles.css'; // Import CSS for modal styling
-
-// const AddTask = ({ goalId, onClose, onUpdate }) => {
-//     const [task, setTask] = useState('');
-//     const [message, setMessage] = useState('');
-
-//     const handleAddTask = async () => {
-//         if (task.trim() === '') {
-//             setMessage('Task cannot be empty');
-//             setTimeout(() => setMessage(''), 3000); // Clear the message after 3 seconds
-//             return;
-//         }
-
-//         try {
-//             const response = await axios.post(`http://127.0.0.1:5000/${goalId}/create_task`, { task });
-
-//             if (response.status === 201 || response.status === 200) {
-//                 setMessage('Task added successfully!');
-//                 onUpdate(); // Refresh the goals to include the new task
-//                 setTimeout(() => {
-//                     setMessage('');
-//                     onClose();
-//                 }, 2000);
-//             } else {
-//                 setMessage('Failed to add task');
-//             }
-//         } catch (error) {
-//             setMessage('Failed to add task');
-//         }
-//     };
 
 const AddTask = ({ goalId, taskId = "NONE", onClose, onUpdate }) => {
     const [task, setTask] = useState('');
@@ -45,8 +17,8 @@ const AddTask = ({ goalId, taskId = "NONE", onClose, onUpdate }) => {
         try {
             // user decide to generally add Task OR add Task after sepecific Task id
             const url = taskId !== "NONE" 
-                ? `https://workflowbackendapi-production.up.railway.app/task_create_after/${taskId}`
-                : `https://workflowbackendapi-production.up.railway.app/${goalId}/create_task`;
+                ? `${BASE_URL}/task_create_after/${taskId}`
+                : `${BASE_URL}/${goalId}/create_task`;
             const response = await axios.post(url, { task });
 
             if (response.status === 201 || response.status === 200) {

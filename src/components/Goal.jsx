@@ -134,13 +134,13 @@ const Goal = ({ goal, onUpdate }) => {
                                         {showTasks ? '合上目标详情' : '展开目标详情'}
                                     </button>
                                     <button className="menu-item text-gray-700 hover:bg-gray-100" onClick={toggleModalVisibility}>
-                                        Add Task
+                                        添加新任务
                                     </button>
                                     <button className="menu-item text-gray-700 hover:bg-gray-100" onClick={openUpdateGoalModal}>
-                                        Update Goal
+                                        更改目标
                                     </button>
                                     <button className="menu-item text-gray-700 hover:bg-gray-100" onClick={openDeleteGoalModal}>
-                                        Delete Goal
+                                        删除目标
                                     </button>
                                     <button className={`menu-item hover:bg-gray-100 ${isEditMode ? 'edit-mode-active' : 'text-gray-700'}`} 
                                     onClick={toggleEditMode}>
@@ -158,7 +158,7 @@ const Goal = ({ goal, onUpdate }) => {
             {showTasks && (
                 isTaskEmpty ? (
                     <div className="empty-tasks-container mt-4 text-center">
-                        <p className="text-gray-600">No tasks available.</p>
+                        <p className="text-gray-600">开始添加新任务吧</p>
                     </div>
                 ) : (
                 // <div className="tasks-container">

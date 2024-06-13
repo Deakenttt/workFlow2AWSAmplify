@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../config';
 import '../Styles.css'; // Import CSS for modal styling
 
 const UpdateGoal = ({ goalId, currentGoal, currentStatus, onClose, onUpdate }) => {
@@ -22,7 +23,7 @@ const UpdateGoal = ({ goalId, currentGoal, currentStatus, onClose, onUpdate }) =
         try {
             // { goal }, the 'goal' have to match up the attribute name in backend sql
             const response = await axios.put(
-                `http://127.0.0.1:5000/update_goal/${goalId}`, { goal, state: statusBoolean });
+                `${BASE_URL}/update_goal/${goalId}`, { goal, state: statusBoolean });
             // console.log(response.data);
 
             if (response.status === 201 || response.status === 200) {
@@ -40,7 +41,7 @@ const UpdateGoal = ({ goalId, currentGoal, currentStatus, onClose, onUpdate }) =
         }
         try {
             const response = await axios.put(
-                `https://workflowbackendapi-production.up.railway.app/${goalId}/estamate_time`, {});
+                `${BASE_URL}/${goalId}/estamate_time`, {});
             if (response.status === 201 || response.status === 200) {
                 // const data = await response.json();
                 // console.log(response);

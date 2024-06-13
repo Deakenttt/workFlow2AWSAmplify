@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../config';
 import '../Styles.css'; // Import CSS for modal styling
 
 const DeleteTask = ({ taskId, onUpdate }) => {
@@ -7,7 +8,7 @@ const DeleteTask = ({ taskId, onUpdate }) => {
     const handleDeleteTask = async () => {
         try {
             const response = await 
-            axios.delete(`https://workflowbackendapi-production.up.railway.app//delete_task/${taskId}`);
+            axios.delete(`${BASE_URL}/delete_task/${taskId}`);
 
             if (response.status === 200) {
                 setMessage('成功删除此任务!');
