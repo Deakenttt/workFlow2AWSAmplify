@@ -15,7 +15,6 @@ export const fetchFromAPI = async (url) => {
   
       // Assuming data.contacts is a list of objects with properties id, firstname, lastname, email
       console.log("fetchFromAPI");
-      console.log(data);
       return data; // Return the contacts data
     } catch (error) {
       console.error("Error fetching goals:", error);
